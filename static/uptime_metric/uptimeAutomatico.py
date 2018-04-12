@@ -23,13 +23,13 @@ yaml_config = yaml.load(configFile)
 
 #Inicio de la conexion con la base de datos
 
-con = Connection('localhost')
+con = Connection('10.10.1.88')
 db = con.StatusAPIs
 
 #Funcion que inserta el estado de la api en la base de datos de mongo
 
 def updateFile(request, app):
-    if request == 200:
+    if request == 200 or request == 429:
         answer = 'Correct'
     else:
         answer = 'Wrong'
@@ -67,10 +67,7 @@ updateFile(status.status_code,'Google')
 
 # #######################################     PINTEREST    ##########################################
 
-access_token = yaml_config['pinterest_credentials']['access_token']
-
-#tengo que hacer una primera peticion a los boards de a los que sigo para poder pedir sus pins (imagenes)
-status = requests.get(yaml_config['url_Pinterest'] + access_token)
+status = requests.get(yaml_config['url_Pinterest'])
 updateFile(status.status_code,'Pinterest')
 
 

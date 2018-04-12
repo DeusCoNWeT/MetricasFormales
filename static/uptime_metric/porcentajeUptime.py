@@ -6,7 +6,7 @@ import os
 from pymongo import Connection
 
 path = os.path.dirname(os.path.abspath(__file__))
-con = Connection('localhost')
+con = Connection('10.10.1.88')
 db = con.StatusAPIs
 
 print "Los porcentajes de uptime de las siguientes APIs son:\n"

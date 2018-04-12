@@ -11,7 +11,7 @@ import matplotlib.dates as md
 import datetime as dt
 
 path = os.path.dirname(os.path.abspath(__file__))
-con = Connection('localhost')
+con = Connection('10.10.1.88')
 db = con.StatusAPIs
 
 script, app, medida = argv
@@ -52,7 +52,7 @@ for i in rango:
     lineas_totales = 0
     lineas_correctas = 0
     for element in db[app].find({ "time": { "$gt": horaActual-segundosARestar, "$lt": horaActual } } ):
-        if element['code'] == 200:
+        if element['code'] == 200 or element['code'] == 429:
             lineas_correctas += 1
         lineas_totales += 1
     if lineas_totales == 0:

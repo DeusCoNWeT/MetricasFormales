@@ -21,11 +21,9 @@ url_Facebook: "https://www.facebook.com/platform/api-status/"
 #######################################     PINTEREST    ##########################################
 
 #Credenciales para la autentificacion en la API de Pinterest (estan metidas las claves de DEUS)
-pinterest_credentials:
-    access_token: 'AYzOkS8gPFoFyhU56X9RjekH8IQFFI3y549FYk9DmW-C0gBCfwAAAAA'
 
 #url de Pinterest
-url_Pinterest: "https://api.pinterest.com/v1/me/pins/?access_token="
+url_Pinterest: "https://api.pinterest.com/oauth/?response_type=code&redirect_uri=https://mywebsite.com/connect/pinterest/&client_id=12345&scope=read_public,write_public&state=768uyFys"
 
 
 #######################################     TRAFFIC    ############################################
